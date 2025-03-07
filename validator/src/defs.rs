@@ -28,7 +28,7 @@ pub struct Dep {
     pub id: String,
     pub name: String,
     pub typ: String,
-    pub rf: String,
+    pub refer: String,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -47,15 +47,25 @@ pub struct Callable {
     pub name: String,
     pub pos: String,
     pub file: String,
+    pub signature: String,
+    pub abst: String,
+    pub parameters: Vec<String>,
+    pub results: Vec<String>,
     pub comment: String,
+    pub method: bool,
+    pub private: bool,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
 pub struct Call {
     pub id: String,
-    pub name: String,
+    pub signature: String,
     pub pos: String,
+    pub caller: String,
+    pub callee: String,
+    pub typ: String,
     pub file: String,
+    pub dep: String,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -65,6 +75,7 @@ pub struct Abstract {
     pub pos: String,
     pub file: String,
     pub comment: String,
+    pub fields: Vec<String>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
