@@ -6,7 +6,6 @@ pub struct Pkg {
     pub name: String,
     pub path: String,
     pub imports: Vec<String>,
-    pub exports: Vec<String>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -20,7 +19,6 @@ pub struct File {
     pub abstracts: Vec<Abstract>,
     pub refs: Vec<Reference>,
     pub imports: Vec<String>,
-    pub exports: Vec<String>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -37,8 +35,15 @@ pub struct Repo {
     pub lang: String,
     pub parser: String,
     pub timestamp: String,
+    pub repository: String,
+    pub version: String,
     pub pkgs: Vec<Pkg>,
     pub files: Vec<File>,
+    pub fns: Vec<Callable>,
+    pub calls: Vec<Call>,
+    pub absts: Vec<Abstract>,
+    pub refs: Vec<Reference>,
+    pub deps: Vec<Dep>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]

@@ -5,20 +5,29 @@
 ## Repostory
 
 ```yaml
+name: string; repository name
+lang: string; package programming language
 parser: string; the parser name
+timestamp: string; parse time
+repository: string; repository URL
+version: string; version
 pkgs: [Package]; packages
 files: [File]; files
+fns: [Callable]; files
+calls: [Call]; files
+absts: [Abstract]; files
+refs: [Reference]; files
 deps: [Dependency]; dependencies
 ```
 
 ## Package
 
 ```yaml
-id: string; unique package IDs
 name: string; package name, commonly the folder name
-path: string; the path of the package, the result of pwd
+fullName: string; package full name
+path: string; package path
+deps: [string]; deps of current package
 imports: [string]; packages which are imported by current package
-exports: [string]; packages which import current package
 ```
 
 ## File
@@ -28,8 +37,8 @@ id: string; unique file IDs
 name: string; the file name with extension name
 path: string; the path of the package, the result of pwd
 pkg: ID: related package ID
+deps: [string]; deps of current file
 imports: [string]; files which are imported by current file
-exports: [string]; files which import current file
 ```
 
 ## Dependency
